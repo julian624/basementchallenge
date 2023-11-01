@@ -1,0 +1,295 @@
+$black: #333;
+$gray: #808080;
+$white: #fff;
+$bg: #f2f0ed;
+
+
+  a {
+    text-decoration: none;
+  }
+  
+  .link {
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    font-size: 3em;
+    color: $gray;
+    text-transform: uppercase;
+    transition: color 275ms ease;
+    &:hover {
+      color: $black;
+      ~ .hover-container {
+        .link-text {
+          opacity: 1;
+        }
+        .image-container {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  
+  .link-text {
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 3em;
+    color: $white;
+    text-transform: uppercase;
+    pointer-events: none;
+    clip-path: circle(75px at var(--x) var(--y));
+    opacity: 0;
+    transition: opacity 250ms ease;
+  }
+  
+  .image-container {
+    z-index: -2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+    transition: opacity 250ms ease;
+  }
+  
+  .image-inner {
+    position: absolute;
+    top: -75px;
+    left: -75px;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .link-image {
+    display: block;
+    max-width: 100%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    filter: brightness(0.9);
+  }
+
+  .modal__container {
+    width: 50%;
+    position: fixed;
+    right: 0;
+    background-color: black;
+    color: white;
+    height: 80vh;
+    width: 45%;
+    right: 0;
+    background-color: black;
+    color: white;
+    z-index: 1000;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    @media only screen and (max-width: 767px) {
+      width:100vw;
+      height: 100vh;
+      }
+  
+
+    .modal-content{
+      padding:1.5vw;
+    }
+
+   
+    .modal__title{
+      display: flex;
+      width: 90%;
+      margin:0 auto;
+      font-size: 6vw;
+      white-space:nowrap;
+      @media only screen and (max-width: 767px) {
+        display: flex;
+        width: auto;
+        margin: 0 auto;
+        padding-top: 15px;
+        font-size: 15vw;
+        position: relative;
+        pointer-events: none;
+        white-space: break-spaces;
+        text-align: center;
+        }
+      
+      span{
+        white-space: nowrap;
+        position: relative;
+        -webkit-text-stroke-width: 0.1rem;
+        -webkit-text-stroke-color: white;
+        color: transparent;
+        text-transform: uppercase;
+        overflow: hidden;
+        letter-spacing: 7px;
+
+      }
+   }
+   .modal__card__container{
+    width: 100%;
+    height: 15vw;
+    max-height: 15vw;
+    overflow-y: scroll;
+    position: relative;
+    @media only screen and (max-width: 767px) {
+      width:100vw;
+      max-height: 60vh;
+      height: 100%;
+  
+      }
+
+  .modal__card{
+    position: relative;
+    height: 95%;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid white;
+    display: flex;
+    .modal__card__info{
+      height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 5px;
+    @media only screen and (max-width: 767px) {
+     height: auto;
+      }
+    .modal__card__info__bottom{
+      white-space: nowrap;
+      width: 100%;
+      h2{
+        font-size: 1.2vw;
+        color: white;
+          white-space: nowrap;
+          letter-spacing: 3px;
+        span{
+          border: 1px solid white;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+         display: contents;
+          text-align: center;
+        }
+      }
+      @media only screen and (max-width: 767px) {
+        h2{
+          font-size: 3vw;
+          white-space: wrap;
+        }
+       
+        }
+    }
+    .modal__card__info__top{
+      white-space: nowrap;
+      width: 100%;
+      h2{
+        font-size: 2vw;
+        color: white;
+      }
+      h5{
+        white-space: nowrap;
+        font-size: 1vw;
+        color: gray
+
+      }
+      @media only screen and (max-width: 767px) {
+        h2{
+          font-size: 5vw;
+        }
+        h5{
+          font-size: 3vw;
+        }
+        }
+    }
+    }
+    .modal__card__image{
+      height: 100%;
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #000, #171717);
+      margin-right: 10px;
+      cursor: pointer;
+      position: relative;
+      img{
+        overflow: hidden;
+      }
+     
+  }
+  }
+   }
+   .modal__footer{
+    position:absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    bottom:0;
+    width: 100%;
+    left: 0;
+    height: 5vw;
+    border-top:1px solid whitesmoke;
+    padding: 5px;
+    @media only screen and (max-width: 767px) {
+      width:100vw;
+      max-height: none;
+      min-height: 10vh;
+      flex-direction: column;
+      }
+    .modal__footer__total{
+      width: 60%;
+      position: relative;
+      height: 100%;
+      font-size: 2vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @media only screen and (max-width: 767px) {
+        font-size: 5vw;
+        border-left: 0px;
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        }
+    }
+    .modal__footer__checkout{
+      width: 40%;
+      position: relative;
+      height: 100%;
+      position: relative;
+      border-left: 1px solid white;
+        -webkit-text-stroke-width: 0.1rem;
+        -webkit-text-stroke-color: white;
+        color: transparent;
+        text-transform: uppercase;
+        overflow: hidden;
+        letter-spacing: 7px;
+        font-size: 2vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        @media only screen and (max-width: 767px) {
+          font-size: 6vw;
+          border-left: 0px;
+          width: 100%;
+          flex-direction: column;
+          border-top: 1px solid white;
+          }
+    }
+   }
+  }
+
+
+  
