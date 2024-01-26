@@ -3,16 +3,13 @@ import Image from "next/image"
 import s from '../../index/index.module.scss'
 import React, { useState, useEffect } from 'react';
 import { Modal } from "./modal";
-import useCart from "@/app/hooks/useCartItems";
 export const Navbar = ({ cartItems }: { cartItems: any }) => {
-
     const [scrolled, setScrolled] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const openModal = () => {
         setIsModalOpen(true);
     };
-
     const closeModal = () => {
         setIsModalOpen(false);
     };
@@ -24,13 +21,12 @@ export const Navbar = ({ cartItems }: { cartItems: any }) => {
                 setScrolled(false);
             }
         };
-
         window.addEventListener('scroll', handleScroll);
-
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, [])
+
     const totalCartPrice = cartItems.reduce((total: any, product: any) => {
         const price = parseFloat(product.price.replace('$', ''));
         return total + price;
@@ -38,7 +34,6 @@ export const Navbar = ({ cartItems }: { cartItems: any }) => {
     function contarCantidadYPrecioTotal(cartItems: any) {
         const precioPorItemId: Record<number, number> = {};
         const cantidadPorItemId: Record<number, number> = {};
-
         cartItems.forEach((item: any) => {
             const itemId = item.id;
             const precio = parseFloat(item.price.replace('$', ''));
@@ -67,7 +62,6 @@ export const Navbar = ({ cartItems }: { cartItems: any }) => {
         <>
             <nav className={`fixed z-30 top-0 h-10 w-full nav p-10 flex items-center justify-between ${scrolled ? 'backdrop-blur-sm' : ''}`}>
                 <h2 className='hidden md:inline sm:text-white text-2xl flex'>basement</h2>
-
                 <h2 className='block text-white text-3xl sm:hidden'>b.</h2>
                 <Image
                     src='/assets/Group.png'

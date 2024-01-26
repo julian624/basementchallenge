@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 
 export const Footer = () => {
     return (
-        <>
             <footer className=' h-56 flex-col w-full relative flex items-center justify-between'>
                 <Image
                     src='/assets/footer.png'
@@ -16,6 +15,5 @@ export const Footer = () => {
                     style={{ width: '100%', height: 'auto', padding: '2vw' }}
                     alt='navbaricon' />
             </footer>
-        </>
     )
 }

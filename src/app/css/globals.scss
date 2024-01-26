@@ -81,3 +81,56 @@ html.lenis {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+#neon {
+  text-align: center;
+  // font-family: neon;
+  color: white;
+  text-shadow: 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights),
+    0 0 1vh var(--lights);
+  animation: flicker 7s infinite;
+  filter: brightness(1);
+}
+
+@keyframes flicker {
+  9% {
+    text-shadow: 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights),
+      0 0 1vh var(--lights);
+    filter: brightness(1);
+  }
+  10% {
+    text-shadow: none;
+    filter: brightness(0.4);
+  }
+  11% {
+    text-shadow: 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights),
+      0 0 1vh var(--lights);
+    filter: brightness(1);
+  }
+  12% {
+    text-shadow: none;
+    filter: brightness(0.4);
+  }
+  13% {
+    text-shadow: 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights),
+      0 0 1vh var(--lights);
+    filter: brightness(1);
+  }
+  66% {
+    text-shadow: 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights),
+      0 0 1vh var(--lights);
+    filter: brightness(1);
+  }
+  67% {
+    text-shadow: none;
+    filter: brightness(0.4);
+  }
+  75% {
+    text-shadow: none;
+    filter: brightness(0.4);
+  }
+  76% {
+    text-shadow: 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights), 0 0 0.5vh var(--lights),
+      0 0 1vh var(--lights);
+    filter: brightness(1);
+  }
+}

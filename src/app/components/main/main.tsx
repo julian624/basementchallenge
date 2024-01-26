@@ -2,10 +2,10 @@
 import Image from "next/image"
 import s from '../../index/index.module.scss'
 import '../../css/helpers.scss'
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { gsap } from "gsap";
-import { Draggable } from "gsap/Draggable";
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 
 interface Product {
@@ -17,7 +17,7 @@ interface Product {
 }
 
 interface MainProps {
-	products: Product[]; // Recibe la lista de productos como propiedad
+	products: Product[]; 
 	onAddToCart: (product: Product) => void;
 }
 interface MousePosition {
@@ -25,6 +25,36 @@ interface MousePosition {
 	y: number;
 }
 export const Main: React.FC<MainProps> = ({ products, onAddToCart }) => {
+	useGSAP(() => {
+        gsap.from('#heading div', {
+            filter: 'blur(0.15em)',
+            stagger: {
+                each: 0.15,
+            },
+			delay:'2',
+            duration: (i) => 0.3 + i * 0.11,
+            ease: 'power2.inOut',
+        });
+
+        gsap.from('#heading div', {
+            xPercent: (i) => (i + 1) * 20,
+            opacity: 0,
+            stagger: {
+                each: 0.1,
+            },
+			delay:'2',
+            duration: (i) => 0.3 + i * 0.11,
+            ease: 'power2.inOut',
+        });
+		gsap.from('#supply', {
+            xPercent: (i) => (i + 1) * 20,
+            opacity: 0,
+			delay:'2.5',
+            duration: (i) => 2 ,
+            ease: 'power2.inOut',
+        });
+    });
+
 	const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
 
 	const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -61,17 +91,24 @@ export const Main: React.FC<MainProps> = ({ products, onAddToCart }) => {
 						initial={{ opacity: 1 }}
 						transition={{ duration: 1.5, ease: 'easeOut', delay: 0 }}
 					>
-						BASEMENT
+						<div className='flex' id='heading'>
+							<div>B</div>
+							<div>A</div>
+							<div>S</div>
+							<div>E</div>
+							<div>M</div>
+							<div>E</div>
+							<div>N</div>
+							<div id='neon'>T</div>
+						</div>
 					</motion.h1>
 					<motion.div
 						className='flex justify-between w-full items-center'
-						animate={{ opacity: 1, y: 0 }}
-						initial={{ opacity: 0, y: 0 }}
 						transition={{ duration: 1, delay: 0, ease: 'easeOut' }}>
 						<motion.h5>
 							EST
 						</motion.h5>
-						<motion.h2
+						<motion.h2 id='supply'
 						>
 							SUPPLY
 						</motion.h2>
